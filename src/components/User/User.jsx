@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from 'react';
-import { Link, Navigate } from 'react-router';
+import { Link, Navigate, useLocation } from 'react-router';
 import UserDetails2 from '../UserDetails2/UserDetails2';
 
 const User = ({user}) => {
@@ -16,6 +16,9 @@ const User = ({user}) => {
         padding: '10px',
         margin: '10px'
     }
+
+    const location = useLocation();
+    console.log(location);
 
     if(visitHome){
         return <Navigate to="/"></Navigate>
