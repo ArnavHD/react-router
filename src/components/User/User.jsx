@@ -1,8 +1,9 @@
 import React, { Suspense, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, Navigate } from 'react-router';
 import UserDetails2 from '../UserDetails2/UserDetails2';
 
 const User = ({user}) => {
+    const [visitHome, setVisitHome] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
     const {id, name, username, email, phone} = user;
 
@@ -14,6 +15,10 @@ const User = ({user}) => {
         borderRadius: '20px',
         padding: '10px',
         margin: '10px'
+    }
+
+    if(visitHome){
+        return <Navigate to="/"></Navigate>
     }
     return (
       <div style={userStyle}>
@@ -30,6 +35,7 @@ const User = ({user}) => {
             <UserDetails2 userPromise={userPromise}></UserDetails2>
           </Suspense>
         )}
+        <button onClick={()=>setVisitHome(true)}>Visit Home</button>
       </div>
     );
 };
