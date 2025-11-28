@@ -75,6 +75,10 @@ const router = createBrowserRouter([
     path: "app2",
     element: <App></App>,
   },
+  {
+    path: "*",
+    element: <h1>Opps!! Page not Found.</h1>,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
